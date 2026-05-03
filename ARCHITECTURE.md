@@ -244,6 +244,7 @@ src/
 | `NEXT_PUBLIC_STAGE` | `production` |
 | `NEXT_PUBLIC_COGNITO_USER_POOL_ID` | `us-east-1_JQWwFbO9a` |
 | `NEXT_PUBLIC_COGNITO_CLIENT_ID` | `2qq6i24oc48391cmuv4kfl1rm2` |
+| `NEXT_PUBLIC_COGNITO_HOSTED_UI_DOMAIN` | `cloudless-auth.auth.us-east-1.amazoncognito.com` |
 | `NOTION_BLOG_DB_ID` | (Notion DB ID — non-secret) |
 | `NOTION_SUBMISSIONS_DB_ID` | (Notion DB ID — non-secret) |
 | `NOTION_DOCS_DB_ID` | (Notion DB ID — non-secret) |
