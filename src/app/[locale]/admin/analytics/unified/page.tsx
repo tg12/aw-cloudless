@@ -8,7 +8,7 @@ interface SeoData {
   clicks: number;
   impressions: number;
   ctr: number;
-  position: number;
+  avgPosition: number;
 }
 
 interface PipelineData {
@@ -229,7 +229,7 @@ export default function UnifiedAnalyticsPage() {
                 />
                 <KpiCard
                   label="Avg Position"
-                  value={data.seo.position.toFixed(1)}
+                  value={data.seo.avgPosition.toFixed(1)}
                   sub="lower is better"
                   color="text-neon-yellow"
                 />
@@ -263,7 +263,7 @@ export default function UnifiedAnalyticsPage() {
                     By Stage
                   </div>
                   <div className="space-y-1">
-                    {Object.entries(data.pipeline.dealsByStage).map(
+                    {Object.entries(data.pipeline.dealsByStage ?? {}).map(
                       ([stage, count]) => (
                         <div
                           key={stage}

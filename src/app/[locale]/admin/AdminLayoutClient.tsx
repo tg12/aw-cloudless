@@ -108,9 +108,11 @@ const adminGroups: AdminGroup[] = [
 function NavList({
   isActive,
   onLinkClick,
+  localePrefix,
 }: {
   isActive: (href: string) => boolean;
   onLinkClick?: () => void;
+  localePrefix: string;
 }) {
   return (
     <nav className="space-y-4">
@@ -125,7 +127,7 @@ function NavList({
               return (
                 <Link
                   key={href}
-                  href={href}
+                  href={`${localePrefix}${href}`}
                   onClick={onLinkClick}
                   className={`flex min-h-10 items-center gap-3 rounded-lg px-3 py-2 font-mono text-sm transition-all ${
                     active
@@ -177,6 +179,8 @@ export default function AdminLayoutClient({
       </div>
     );
   }
+
+  const localePrefix = pathname?.match(/^\/(en|el|fr|de)(?=\/)/)?.[0] ?? "";
 
   const isActive = (href: string) => {
     if (href === "/admin")
@@ -272,6 +276,7 @@ export default function AdminLayoutClient({
             <NavList
               isActive={isActive}
               onLinkClick={() => setDrawerOpen(false)}
+              localePrefix={localePrefix}
             />
           </div>
         </div>
@@ -289,7 +294,7 @@ export default function AdminLayoutClient({
                   </p>
                   <WorkspaceSwitcher />
                 </div>
-                <NavList isActive={isActive} />
+                <NavList isActive={isActive} localePrefix={localePrefix} />
               </div>
             </aside>
 

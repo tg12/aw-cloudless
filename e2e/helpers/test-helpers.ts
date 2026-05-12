@@ -29,6 +29,10 @@ export async function loginAsUser(
   await page.waitForURL(`**${expectedRedirect}`, { timeout: 30000 }).catch(async () => {
     await page.waitForLoadState("networkidle");
   });
+
+  await expect(page.locator('button[data-test-id="user-menu"]')).toBeVisible({
+    timeout: 15000,
+  });
 }
 
 /**

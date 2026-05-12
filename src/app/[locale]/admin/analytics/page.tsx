@@ -28,7 +28,7 @@ interface SeoSnapshot {
   clicks: number;
   impressions: number;
   ctr: number;
-  position: number;
+  avgPosition: number;
 }
 
 interface Keyword {
@@ -68,7 +68,7 @@ interface WebAnalytics {
   clicks: number;
   impressions: number;
   ctr: number;
-  position: number;
+  avgPosition: number;
 }
 
 // ─── Helper components ────────────────────────────────────────────────────────
@@ -412,7 +412,7 @@ export default function AdminAnalyticsPage() {
                   />
                   <StatCard
                     label="Avg Position"
-                    value={snapshot ? snapshot.position.toFixed(1) : "—"}
+                    value={snapshot?.avgPosition != null ? snapshot.avgPosition.toFixed(1) : "—"}
                     accent="text-yellow-400"
                   />
                 </div>
@@ -436,7 +436,7 @@ export default function AdminAnalyticsPage() {
                     <StatCard
                       label="Position"
                       value={
-                        web?.position != null ? web.position.toFixed(1) : "—"
+                        web?.avgPosition != null ? web.avgPosition.toFixed(1) : "—"
                       }
                     />
                   </div>
